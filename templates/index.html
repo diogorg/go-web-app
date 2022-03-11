@@ -1,0 +1,40 @@
+{{define "Index"}}
+<!DOCTYPE html>
+<html>
+{{template "_head"}}
+<body>
+    {{template "_navbar"}}
+    <div class="container">
+        <section class="card">
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descricao</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th></th>
+                </tr>
+                {{range .}}
+                <tr>
+                    <td>{{.Name}}</td>
+                    <td>{{.Description}}</td>
+                    <td>{{.Price}}</td>
+                    <td>{{.Quantity}}</td>
+                    <td>
+                        <a style="display: block; margin: 0px 0px;background:cornflowerblue; padding: 5px 10px;color: #fff; text-align: center; text-decoration: none;" href="/edit?id={{.Id}}">Editar</a>
+                        <a style="display: block; margin: 0px 0px;background: crimson; padding: 5px 10px;color: #fff; text-align: center; text-decoration: none;" href="/delete?id={{.Id}}">Deletar</a>
+                    </td>
+                </tr>
+                {{end}}
+            </table>
+            <a 
+            style="margin: 15px 0px;color: #fff; text-align: center; text-decoration: none; padding: 5px 15px; background:green" 
+            href="/new">
+                Adicionar Produto
+            </a>
+        </section>
+    </div>
+    
+</body>
+</html>
+{{end}}
